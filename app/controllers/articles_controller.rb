@@ -1,10 +1,9 @@
 class ArticlesController < ApplicationController
+  before_action :check_access
   def new
-    check_access
   end
 
   def create
-    check_access
     @article = Article.new(article_params)
 
     @article.save
@@ -12,12 +11,10 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    check_access
     @articles = Article.all
   end
 
   def show
-    check_access
     @article = Article.find(params[:id])
   end
 
