@@ -1,0 +1,7 @@
+%h1 Blog Login
+= form_tag sessions_path do
+  %label{:for => "username"} Username
+  = text_field_tag :username, params[:username]
+  %label{:for => "password"} Password
+  = password_field_tag :password, params[:password]
+  = submit_tag  "Login"
