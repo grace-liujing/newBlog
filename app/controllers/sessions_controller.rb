@@ -1,6 +1,13 @@
 class SessionsController < ApplicationController
-  def index
+  skip_before_action :check_access, only: [:create, :new]
 
+  def new
+  end
+
+  def destroy
+    session[:user_id] = nil
+    flash[:notice] = "Log out successfully."
+    redirect_to new_session_path
   end
 
   def create
@@ -11,7 +18,7 @@ class SessionsController < ApplicationController
       redirect_to articles_path
     else
       flash[:notice] = "The username or password is not correct."
-      redirect_to sessions_path
+      redirect_to new_session_path
     end
   end
 end
