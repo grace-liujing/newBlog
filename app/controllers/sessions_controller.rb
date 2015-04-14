@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to articles_path
     else
       flash[:notice] = "The username or password is not correct."
-      redirect_to new_session_path
+      redirect_to sessions_path
     end
   end
 end
