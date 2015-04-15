@@ -40,3 +40,5 @@ gem 'spring',        group: :development
 gem 'pry', group: :development
 
 gem 'haml-rails'
+
+gem 'rspec-rails'
